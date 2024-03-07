@@ -3,5 +3,7 @@ package com.javeria.notesapp.feature_notes.domain.use_case
 //Inject this class into viewmodel
 data class NoteUseCases(
     val getNotesUseCases: GetNotesUseCases,
-    val deleteNoteUseCase: DeleteNoteUseCase
+    val deleteNoteUseCase: DeleteNoteUseCase,
+    val addNoteUseCase: AddNoteUseCase,
+    val getNoteUseCase: GetNoteUseCase
 )

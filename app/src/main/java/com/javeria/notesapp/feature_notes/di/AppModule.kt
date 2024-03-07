@@ -7,7 +7,9 @@ import com.javeria.notesapp.feature_notes.data.data_source.NoteDatabase
 import com.javeria.notesapp.feature_notes.data.data_source.NoteDatabase.Companion.DATABASE_NAME
 import com.javeria.notesapp.feature_notes.data.repository.NoteRepositoryImpl
 import com.javeria.notesapp.feature_notes.domain.repository.NoteRepository
+import com.javeria.notesapp.feature_notes.domain.use_case.AddNoteUseCase
 import com.javeria.notesapp.feature_notes.domain.use_case.DeleteNoteUseCase
+import com.javeria.notesapp.feature_notes.domain.use_case.GetNoteUseCase
 import com.javeria.notesapp.feature_notes.domain.use_case.GetNotesUseCases
 import com.javeria.notesapp.feature_notes.domain.use_case.NoteUseCases
 import dagger.Module
@@ -38,6 +40,9 @@ object AppModule {
     fun providesNoteUseCases(repository: NoteRepository): NoteUseCases {
         return NoteUseCases(
             getNotesUseCases = GetNotesUseCases(repository),
-            deleteNoteUseCase = DeleteNoteUseCase(repository))
+            deleteNoteUseCase = DeleteNoteUseCase(repository),
+            addNoteUseCase = AddNoteUseCase((repository)),
+            getNoteUseCase =  GetNoteUseCase(repository)
+        )
     }
 }

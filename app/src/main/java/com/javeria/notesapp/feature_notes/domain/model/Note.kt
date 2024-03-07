@@ -7,6 +7,7 @@ import com.javeria.notesapp.ui.theme.LightGreen
 import com.javeria.notesapp.ui.theme.RedOrange
 import com.javeria.notesapp.ui.theme.RedPink
 import com.javeria.notesapp.ui.theme.Violet
+import kotlin.Exception
 
 @Entity
 data class Note(
@@ -17,3 +18,5 @@ data class Note(
         val noteColors = listOf(RedOrange, LightGreen, Violet, BabyBlue, RedPink)
     }
 }
+
+class InvalidNoteException(message: String): Exception(message)
